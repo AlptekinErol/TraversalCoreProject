@@ -1,0 +1,38 @@
+﻿@model IEnumerable<HotelSearchViewModel.Property1>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<h1>Otel Rezervasyon Sayfası (api)</h1>
+
+<h3>Paris/Fransa arandı statik olarak</h3>
+
+<table class="table table-striped">
+    <tr>
+        <th>#</th>
+        <th>Otel Adı</th>
+        <th>Otel Puanı</th>
+        <th>Yıldız</th>
+        <th>Müsaitlik Durumu</th>
+        <th>Müsait Oda sayısı</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.name</td>
+            <td>@item.reviews.score</td>
+            <td>@item.star</td>
+            <td>@item.availability.available</td>
+            <td>@item.availability.minRoomsLeft</td>
+            <td><a href="#" class="btn btn-outline-success">Detaylar</a></td>
+        </tr>
+
+    }
+</table>
+
